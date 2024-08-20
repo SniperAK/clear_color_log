@@ -29,7 +29,7 @@ npm install -g log-color-cleaner
 
 ### Basic Usage
 ```bash 
-clean-log <path-to-log-file-or-directory
+clean-log <path-to-log-file-or-directory>
 ```
 
 Examples
