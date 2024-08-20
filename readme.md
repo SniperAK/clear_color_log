@@ -19,13 +19,18 @@ Log Color Cleaner is a powerful CLI tool designed to remove ANSI color codes fro
 
 Install Log Color Cleaner globally using npm:
 
-```bash  npm install -g log-color-cleaner ```
+```bash  
+npm install -g log-color-cleaner 
+```
+
 
 
 ## 📘 Usage
 
 ### Basic Usage
-```bash clean-log <path-to-log-file-or-directory>```
+```bash 
+clean-log <path-to-log-file-or-directory
+```
 
 Examples
 Clean a single log file:
