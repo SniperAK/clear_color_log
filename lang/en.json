@@ -1,0 +1,6 @@
+{
+  "usage": "Usage: clean-log <log file or directory path>",
+  "processingComplete": "Processing complete: {0}",
+  "totalFilesToProcess": "Processing a total of {0} log files.",
+  "invalidPath": "The input path is neither a file nor a directory."
+}

@@ -1,0 +1,37 @@
+{
+  "name": "clear_color_log",
+  "version": "1.0.0",
+  "description": "A CLI tool to remove color codes from log files",
+  "main": "index.js",
+  "bin": {
+    "clean-log": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "log",
+    "color",
+    "ansi",
+    "clean",
+    "cli"
+  ],
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cli-progress": "^3.9.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SniperAK/clear_color_log"
+  },
+  "bugs": {
+    "url": "https://github.com/SniperAK/clear_color_log/issues"
+  },
+  "homepage": "https://github.com/SniperAK/clear_color_log#readme",
+  "engines": {
+    "node": ">=12.0.0"
+  }
+}

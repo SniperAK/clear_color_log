@@ -1,0 +1,6 @@
+{
+  "usage": "사용법: clean-log <로그파일 또는 디렉토리 경로>",
+  "processingComplete": "처리 완료: {0}",
+  "totalFilesToProcess": "총 {0}개의 로그 파일을 처리합니다.",
+  "invalidPath": "입력된 경로가 파일이나 디렉토리가 아닙니다."
+}
