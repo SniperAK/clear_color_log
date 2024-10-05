@@ -1,6 +1,6 @@
 {
   "name": "clear_color_log",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "A CLI tool to remove color codes from log files",
   "main": "index.js",
   "bin": {
@@ -17,7 +17,7 @@
     "clean",
     "cli"
   ],
-  "author": "Your Name <your.email@example.com>",
+  "author": "alexkang<alexk@me.com>",
   "license": "MIT",
   "dependencies": {
     "cli-progress": "^3.9.0"

@@ -6,7 +6,10 @@ const cliProgress = require('cli-progress');
 
 // 언어 설정
 const lang = (process.env.LANG || 'en').split('_')[0];
-const strings = require(`./lang/${lang}.json`);
+const langFilePath = `./lang/${lang}.json`;
+
+// 언어 파일이 존재하지 않으면 기본적으로 'en'을 사용
+const strings = fs.existsSync(langFilePath) ? require(langFilePath) : require('./lang/en.json');
 
 // 문자열 포맷 함수
 function format(str, ...args) {
@@ -18,11 +21,11 @@ function format(str, ...args) {
 // 진행 상황을 표시할 프로그레스 바 생성
 const progressBar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
 
-function removeColorCodes(filePath) {
-  const outputPath = filePath.replace(/\.log$/, '_cleaned.log');
+function removeColorCodes(filePath, overwrite) {
+  const outputPath = overwrite ? filePath : filePath.replace(/\.log$/, '_cleaned.log');
 
-  // 이미 cleaned 파일이 존재하는 경우 삭제
-  if (fs.existsSync(outputPath)) {
+  // 이미 cleaned 파일이 존재하는 경우 삭제 (덮어쓰지 않을 때만)
+  if (!overwrite && fs.existsSync(outputPath)) {
     fs.unlinkSync(outputPath);
   }
 
@@ -60,11 +63,11 @@ function processDirectory(dirPath) {
   return logFiles;
 }
 
-function cleanLogs(inputPath) {
+function cleanLogs(inputPath, overwrite) {
   const stat = fs.statSync(inputPath);
 
   if (stat.isFile()) {
-    removeColorCodes(inputPath);
+    removeColorCodes(inputPath, overwrite);
   } else if (stat.isDirectory()) {
     const logFiles = processDirectory(inputPath);
     
@@ -74,7 +77,7 @@ function cleanLogs(inputPath) {
     progressBar.start(logFiles.length, 0);
 
     logFiles.forEach((file, index) => {
-      removeColorCodes(file);
+      removeColorCodes(file, overwrite);
       progressBar.update(index + 1);
     });
 
@@ -86,11 +89,30 @@ function cleanLogs(inputPath) {
   }
 }
 
-// 커맨드 라인 인자로 파일 또는 디렉토리 경로 받기
-const inputPath = process.argv[2];
+// 커맨드 라인 인자 처리
+const args = process.argv.slice(2);
+let inputPath = null;
+let overwrite = false;
+
+function help() {
+  console.log(strings.usage);
+  console.log('-o, --overwrite:', strings.overwriteOption);
+  console.log('-h, --help:', strings.helpOption);
+  process.exit(0);
+}
+
+args.forEach(arg => {
+  if (arg === '--overwrite' || arg === '-o') {
+    overwrite = true;
+  } else if (arg === '--help' || arg === '-h') {
+    help();
+  } else {
+    inputPath = arg;
+  }
+});
 
 if (!inputPath) {
-  console.error(strings.usage);
+  help();
 } else {
-  cleanLogs(path.resolve(inputPath));
+  cleanLogs(path.resolve(inputPath), overwrite);
 }

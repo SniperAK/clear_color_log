@@ -73,3 +73,14 @@ LinkedIn: @yourlinkedin
 
 
 💡 If you find this tool helpful, please consider giving it a star on GitHub and sharing it with others!
+
+## Changelog
+
+### [1.1.0] - 2024-10-05
+#### Changes
+- The `overwrite` option in the `removeColorCodes` function now overwrites the original file instead of deleting it.
+- Added `help` command to provide usage instructions directly from the command line.
+  
+### [1.1.1] - 2024-10-05
+#### Changes
+- fix localization default en

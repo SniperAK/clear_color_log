@@ -2,5 +2,8 @@
   "usage": "Usage: clean-log <log file or directory path>",
   "processingComplete": "Processing complete: {0}",
   "totalFilesToProcess": "Processing a total of {0} log files.",
-  "invalidPath": "The input path is neither a file nor a directory."
+  "invalidPath": "The input path is neither a file nor a directory.",
+  "overwriteOption": "Overwrite original files",
+  "helpOption": "Display help for command",
+  "helpDescription": "A CLI tool to remove color codes from log files. Supports overwriting original files and displaying help."
 }

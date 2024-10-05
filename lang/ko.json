@@ -2,5 +2,8 @@
   "usage": "사용법: clean-log <로그파일 또는 디렉토리 경로>",
   "processingComplete": "처리 완료: {0}",
   "totalFilesToProcess": "총 {0}개의 로그 파일을 처리합니다.",
-  "invalidPath": "입력된 경로가 파일이나 디렉토리가 아닙니다."
+  "invalidPath": "입력된 경로가 파일이나 디렉토리가 아닙니다.",
+  "overwriteOption": "원본 파일을 덮어씁니다",
+  "helpOption": "명령어에 대한 도움말을 표시합니다",
+  "helpDescription": "로그 파일에서 색상 코드를 제거하는 CLI 도구입니다. 원본 파일 덮어쓰기 및 도움말 표시를 지원합니다."
 }
